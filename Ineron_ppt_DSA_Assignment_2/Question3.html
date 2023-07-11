@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findLHS(nums) {
+  const frequencyMap = new Map();
+  for (const num of nums) {
+    if (frequencyMap.has(num)) {
+      frequencyMap.set(num, frequencyMap.get(num) + 1);
+    } else {
+      frequencyMap.set(num, 1);
+    }
+  }
+  
+  let maxLen = 0;
+  for (const key of frequencyMap.keys()) {
+    if (frequencyMap.has(key + 1)) {
+      const len = frequencyMap.get(key) + frequencyMap.get(key + 1);
+      maxLen = Math.max(maxLen, len);
+    }
+  }
+  
+  return maxLen;
+}
+
+
+const nums = [1, 3, 2, 2, 5, 2, 3, 7];
+const result = findLHS(nums);
+document.write("The ans is a "+result);
+
+    </script>
+</body>
+</html>

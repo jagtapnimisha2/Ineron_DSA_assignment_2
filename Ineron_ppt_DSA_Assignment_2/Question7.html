@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function isMonotonic(nums) {
+  let increasing = true;
+  let decreasing = true;
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] > nums[i + 1]) {
+      increasing = false;
+    }
+
+    if (nums[i] < nums[i + 1]) {
+      decreasing = false;
+    }
+  }
+
+  return increasing || decreasing;
+}
+
+const nums = [1, 2, 2, 3];
+document.write("The ans is a "+isMonotonic(nums));
+
+    </script>
+</body>
+</html>
